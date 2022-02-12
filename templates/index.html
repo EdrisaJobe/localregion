@@ -1,4 +1,4 @@
-{% load static %}
+{% load static %} {% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -29,30 +29,20 @@
     </nav>
 
     <!-- Sidebar group -->
-    {% if not location %}
-  <form method="post">
+  <form method='POST'>
     {% csrf_token %}
     <div class="input-group rounded col">
-      <input
-        type="search"
-        id="form1"
-        class="form-control rounded"
-        placeholder="Enter location..."
-        aria-label="Search"
-        aria-describeby="search-addon"
-      />
-      <button class="btn btn-outline-primary" style='border-radius: 8px; margin-left: 3px;' id="search-addon">Search</button>
-    {% endif %}
       
+        {{ form|crispy }}
+      
+      <button class="btn btn-outline-primary" type='submit' style='border-radius: 8px; margin-left: 3px;'>Search</button>
+    </form>
 
-      <div id="map">
-        <div >
-          <!-- map render via DJango tagging -->
-          {{ m|safe }}
-        </div>
+    <div id="map">
+      <div>
+        <!-- map render via DJango tagging -->
+        {{ m|safe }}
       </div>
-
-      
     </div>
 
     <div class="side-menu">
@@ -69,7 +59,8 @@
       <input class="ck" type="checkbox" name="checkbox4">
       <label class='ckt' for="radio2">Geospehere</label>
     </div>
+    
 
-  </form>
+  
   </body>
 </html>
