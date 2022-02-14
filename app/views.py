@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from urllib import request
 from app.models import Search
 from app.forms import SearchForm
 
+# parses data from strings and files
 import json
+
+# gets the api
+import requests
 
 # to display map
 import folium
@@ -46,10 +48,26 @@ def index(request):
     
     # gets HTMl representation of map object
     m = m._repr_html_()
-    context = {
+    map = {
         'm': m,
         'form': form,
     }
     
     # getting form request type
-    return render(request, 'index.html', context)
+    return render(request, 'index.html', map)
+
+def about(request):
+    
+    return render(request, 'about.html')
+
+def currLocation(request):
+    
+    # getting the users Ip address
+    ip = requests.get('https://api.ipify.org?format=json')
+    ip_data = json.loads(ip.text)
+    
+    # content which will fetch user IP address and find location
+    res = requests.get('http://ip-api.com/json/'+ip_data['ip'])
+    location_data_plain = res.text
+    location_data = json.loads(location_data_plain)
+    return render(request, 'currlocation.html', {'data': location_data})

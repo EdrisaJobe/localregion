@@ -2,11 +2,9 @@ body{
     width: 100%;
     height: 100vh;
     box-sizing: border-box;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.side-menu a{
-    padding: 10px;   
-}
 
 .input-group{
     width: 35%;
@@ -19,27 +17,26 @@ body{
     margin: 10px 0px 0px 60px;
     box-shadow: 0px 0px 0px 5px rgb(68, 87, 255);
     box-sizing: border-box;
-    padding-bottom: 95px;
+    padding-bottom: 50px;
+    
 }
 
 .side-menu h5{
-    padding:10px 0px 0px 30px;
+    padding:10px 0px 10px 30px;
     box-sizing: border-box;
     background-color: rgb(107, 121, 255);
     border-bottom: 5px solid rgb(68, 87, 255);
     color: white;
+    margin-right: 10px;
+    width: 100%;
 }
 
-.ck{
-    margin: 55px 0px 0px 20px
+p{
+    margin: 38px 0px 0px 20px;
 }
 
-.ckt{
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
 
 h1{
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     padding-right: 50px;
 }
 
@@ -68,6 +65,12 @@ nav{
     
 }
 
+footer{
+    margin: 50px;
+    text-align: center;
+    align-items: center;
+}
+
 .menu{
    background-color: rgb(107, 121, 255);
    width: 100%;
@@ -88,4 +91,28 @@ nav{
 
 .menu a:hover{
     color: rgb(189, 138, 255);
+}
+
+@media (max-width: 1000px){
+    body{
+        overflow-x: scroll;
+    }
+    .side-menu{
+        display: none;
+    }
+    #map{
+        width: 100%;
+        margin: 120px 100px 0px 0px;
+    }
+    form{
+        align-items: center;
+    }
+    .side-menu{
+        margin: 0 auto;
+        padding: 0;
+    }
+    button{
+        margin: 5px;
+        width: 95%;
+    }
 }
